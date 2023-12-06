@@ -25,19 +25,29 @@
 #Indiquez si la population guérira complètement, sera complètement infectée ou partiellement infectée.
 #Affichez le numéro du jour du premier pic du nombre de personnes infectées.
 
+def main():
 
-Taille_population = 11500000
-année = 365
-PT = 0.01
-PG : 0.05
-rencontres_par_jour = 10  
-nb_p_rencontree =
-infectes_jour_precedent 
+    population = 11500000
+    rencontres_par_jour = 10  
+    infectes_jour_precedent = 100
+    PT = 0.01
+    PG : 0.05
+
+    niag = infectes_jour_precedent * (1-PG)
+    P_infectee = niag + (population - niag) * nb_p_rencontree * niag / population * PT 
+
+    for jour in range(1,366):
+        if jour < 30 or jour >= 75: 
+            rencontres_par_jour = 3 
+        else:
+            rencontres_par_jour = 10
 
 
-niag = infectes_jour_precedent * (1-PG)
-P_infectee = niag + (Taille_population - niag) * nb_p_rencontree * niag / Taille_population * PT 
+ 
+
+    nouveau_infectes = PT * infectes_jour_precedent * (population / rencontres_par_jour)
+    infectes_jour_actuel = infectes_jour_precedent + nouveau_infectes
 
 
-nouveau_infectes = PT * infectes_jour_precedent * (Taille_population / rencontres_par_jour)
-infectes_jour_actuel = infectes_jour_precedent + nouveau_infectes
+    
+
