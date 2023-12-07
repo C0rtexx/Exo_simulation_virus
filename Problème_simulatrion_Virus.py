@@ -25,28 +25,43 @@
 #Indiquez si la population guérira complètement, sera complètement infectée ou partiellement infectée.
 #Affichez le numéro du jour du premier pic du nombre de personnes infectées.
 
-def main():
 
-    population = 11500000
-    rencontres_par_jour = 10  
-    infectes_jour_precedent = 100
-    PT = 0.01
-    PG : 0.05
 
-    niag = infectes_jour_precedent * (1-PG)
-    P_infectee = niag + (population - niag) * nb_p_rencontree * niag / population * PT 
 
-    for jour in range(1,366):
-        if jour < 30 or jour >= 75: 
+
+population = 11500000
+rencontres_par_jour = 10  
+infectes_jour_actuel = [100]
+infectes_jour_precedent = infectes_jour_actuel [-1]
+nouveau_infectes = [0]
+
+PT = 0.01
+PG : 0.05
+jours_confin = range(30,76)
+anee = range(1,366)
+
+for jour in anee:
+
+        if jour in jours_confin :
             rencontres_par_jour = 3 
         else:
-            rencontres_par_jour = 10
+             rencontres_par_jour = 10
+             
+nouveau_infectes = PT * infectes_jour_precedent * (population / rencontres_par_jour)
+infectes_jour_actuel = infectes_jour_precedent + nouveau_infectes
+
+print(int(input("Choisissez un jour de l'année entre 1 et 365")))
+print(int(infectes_jour_actuel))
 
 
- 
 
-    nouveau_infectes = PT * infectes_jour_precedent * (population / rencontres_par_jour)
-    infectes_jour_actuel = infectes_jour_precedent + nouveau_infectes
+def scientific_input():
+    jour = 
+
+            
+            
+
+                
 
 
     
