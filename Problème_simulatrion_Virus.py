@@ -25,10 +25,6 @@
 #Indiquez si la population guérira complètement, sera complètement infectée ou partiellement infectée.
 #Affichez le numéro du jour du premier pic du nombre de personnes infectées.
 
-
-
-
-
 population = 11500000
 rencontres_par_jour = 10  
 infectes_jour_actuel = [100]
@@ -40,23 +36,33 @@ PG : 0.05
 jours_confin = range(30,76)
 anee = range(1,366)
 
-for jour in anee:
+#modèle de imulation
+niag = infectes_jour_precedent * (1 - 0.05)
+infectes_jour_actuel = niag +(population - niag) * rencontres_par_jour * niag / population * 0.01
 
+for jour in anee:
         if jour in jours_confin :
             rencontres_par_jour = 3 
         else:
              rencontres_par_jour = 10
              
 nouveau_infectes = PT * infectes_jour_precedent * (population / rencontres_par_jour)
-infectes_jour_actuel = infectes_jour_precedent + nouveau_infectes
-
-print(int(input("Choisissez un jour de l'année entre 1 et 365")))
-print(int(infectes_jour_actuel))
+infectes_jour_actuel = (infectes_jour_precedent + nouveau_infectes)
 
 
+while True:
+    jour = (int(input("Choisissez un jour de l'année entre 1 et 365 --> : ")))
+    
+    if jour == 0:
+            break
+    else :
+            print(f"Voici le nombre d'infecté actuellement :{infectes_jour_actuel}")
 
-def scientific_input():
-    jour = 
+
+
+
+
+        
 
             
             
